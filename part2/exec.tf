@@ -22,8 +22,8 @@ resource "openstack_compute_instance_v2" "exec" {
       ALLOW_OWNER = $(ALLOW_ADMINISTRATOR)
       ALLOW_CLIENT = *
       DAEMON_LIST = MASTER, SCHEDD, STARTD
-      FILESYSTEM_DOMAIN = terraform-training
-      UID_DOMAIN = terraform-training
+      FILESYSTEM_DOMAIN = tf_workshop_${random_id.unique_name_suffix.hex}
+      UID_DOMAIN = tf_workshop_${random_id.unique_name_suffix.hex}
       TRUST_UID_DOMAIN = True
       SOFT_UID_DOMAIN = True
       # run with partitionable slots
