@@ -7,6 +7,10 @@
 //  disk_format      = var.image["disk_format"]
 //}
 
+data "openstack_networking_network_v2" "_external" {
+  name = var.public_network
+}
+
 // Create private network
 // comment these blocks if the network is already available
 resource "openstack_networking_network_v2" "_internal" {
@@ -26,7 +30,7 @@ resource "openstack_networking_subnet_v2" "_internal" {
 // comment these blocks if this feature is provided by the network
 resource "openstack_networking_router_v2" "router_1" {
   name                = "tf_workshop-router"
-  external_network_id = data.openstack_networking_network_v2.external.id
+  external_network_id = data.openstack_networking_network_v2._external.id
 }
 
 resource "openstack_networking_router_interface_v2" "router_interface_1" {
