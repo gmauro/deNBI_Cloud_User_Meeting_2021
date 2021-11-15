@@ -9,9 +9,9 @@ variable "nfs_disk_size" {
 variable "flavors" {
   type = map(string)
   default = {
-    "central-manager" = "m1.tiny"
-    "nfs-server"      = "m1.tiny"
-    "exec-node"       = "m1.tiny"
+    "central-manager" = "c1.denbi_cloud_user_meeting"
+    "nfs-server"      = "c1.denbi_cloud_user_meeting"
+    "exec-node"       = "c1.denbi_cloud_user_meeting"
   }
 }
 
