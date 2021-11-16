@@ -6,7 +6,7 @@ resource "openstack_compute_instance_v2" "exec" {
   security_groups = var.secgroups
   count           = var.exec_node_count
   network {
-    uuid = data.openstack_networking_network_v2.internal.id
+    name = 	"tf_workshop-private"
   }
 
   user_data = <<-EOF

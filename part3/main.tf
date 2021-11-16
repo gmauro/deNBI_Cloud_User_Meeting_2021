@@ -4,12 +4,12 @@ resource "openstack_compute_instance_v2" "head" {
   flavor_name     = var.flavors.central-manager
   key_pair        = openstack_compute_keypair_v2.my-cloud-key.name
   security_groups = var.secgroups_cm
-  network {
-    uuid = data.openstack_networking_network_v2.external.id
-  }
-  network {
-    uuid = data.openstack_networking_network_v2.internal.id
-  }
+network {
+name = "tf_workshop-private" 
+}
+network {
+name  = "public"
+}
 
   user_data = <<-EOF
   #cloud-config

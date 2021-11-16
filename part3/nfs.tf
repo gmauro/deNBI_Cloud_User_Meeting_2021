@@ -5,7 +5,7 @@ resource "openstack_compute_instance_v2" "nfs" {
   key_pair        = openstack_compute_keypair_v2.my-cloud-key.name
   security_groups = var.secgroups
   network {
-    uuid = data.openstack_networking_network_v2.internal.id
+    name = 	"tf_workshop-private" 
   }
 
   block_device {
